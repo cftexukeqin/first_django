@@ -1,0 +1,109 @@
+{% extends 'cms/base.html' %}
+
+{% block title %}
+
+{% endblock %}
+{% block head %}
+    <style>
+        .banner-item{
+            width: 800px;
+        }
+        .add-btn{
+            float: left;
+        }
+        .more{
+            float: left;
+        }
+        .close-btn{
+            float: right;
+        }
+    .thumbnail-group{
+        width: 250px;
+        height: 85px;
+        float: left;
+    }
+    .thumbnail-group img{
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+    .more-info{
+        margin-left: 20px;
+        float: left;
+        width: 400px;
+    }
+    </style>
+    <script src="{% static 'js/template-web.js' %}"></script>
+    <script src="{% static 'js/banner.min.js' %}"></script>
+
+{% endblock %}
+{% block content-header %}
+<h1>轮播图添加</h1>
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <button class="btn btn-primary add-btn">
+            <label for="" class="fa fa-plus"></label>
+            添加轮播图
+        </button>
+        <ul class="more">
+            <li>最对可以添加5张轮播图</li>
+            <li>选择图片大小为800px,不大于5M的jgp,png的图片格式</li>
+        </ul>
+    </div>
+</div>
+    <div class="banner-list-group"></div>
+    <script id="banner-item" type="text/html">
+        {% verbatim %}
+        {{ if banner }}
+        <div class="box banner-item" data-banner-id="{{ banner.id }}">
+            {{ else }}
+            <div class="box banner-item">
+                {{ /if }}
+                <div class="box-header">
+                    {{ if banner }}
+                    <span class="priority">优先级：{{ banner.priority }}</span>
+                    {{ else }}
+                    <span class="priority">优先级：0</span>
+                    {{ /if }}
+                    <button class="btn btn-default btn-xs pull-right close-btn">
+                        <i class="fa fa-close"></i>
+                    </button>
+                </div>
+                <div class="box-body">
+                    <div class="thumbnail-group">
+                        <input type="file" style="display: none" class="image-input">
+                        {{ if banner }}
+                        <img src="{{ banner.image_url }}" alt="" class="thumbnail">
+                        {{ else }}
+                        <img src="/static/images/banner.png" alt="" class="thumbnail">
+                        {{ /if }}
+                    </div>
+                    <div class="more-info">
+                        <div class="form-group">
+                            {{ if banner }}
+                            <input type="number" class="form-control" name="priority" value="{{ banner.priority }}">
+                            {{ else }}
+                            <input type="number" class="form-control" name="priority">
+                            {{ /if }}
+                        </div>
+                        <div class="form-froup">
+                            {{ if banner }}
+                            <input type="text" class="form-control" name="link_to" value="{{ banner.link_to }}">
+                            {{ else }}
+                            <input type="text" class="form-control" name="link_to">
+                            {{ /if }}
+                        </div>
+                    </div>
+                </div>
+                <div class="box box-footer">
+                    <button class="btn btn-primary pull-right save-btn">
+                        保存
+                    </button>
+                </div>
+            </div>
+        </div>
+        {% endverbatim %}
+    </script>
+{% endblock %}

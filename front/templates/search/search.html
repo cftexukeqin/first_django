@@ -1,0 +1,61 @@
+
+{% extends 'base/front_base.html' %}
+
+{% block title %}
+搜索
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/search/search.min.css' %}">
+{% endblock %}
+{% block main %}
+    <div class="main">
+        <div class="wrapper">
+            <div class="main-content-wrapper">
+                <div class="search-box">
+                    <input  type="text" placeholder="请输入关键词">
+                    <a href="" class="search-btn">搜索</a>
+                </div>
+                <div class="hot-recommand-wrapper">
+                    <p class="item-title">
+                        热门推荐
+                    </p>
+                    <ul class="search-group">
+                        <li>
+                            <div class="thumbnail-group">
+                                <a href="#">
+                                    <img src="https://static-image.xfz.cn/1528268115_691.jpg-website.news.list" alt="">
+                                </a>
+                            </div>
+                            <div class="news-group">
+                                <p class="title"><a href="">A站争夺战，到底谁是龙头老大</a></p>
+                                <p class="desc">对于在A站投入过多这次交易就能达成。这个样式设计正式玛法</p>
+                                <p class="more">
+                                    <span class="category">热点</span>
+                                    <span class="author">南派三叔</span>
+                                    <span class="pub-date">1小时前</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="thumbnail-group">
+                                <a href="#">
+                                    <img src="https://static-image.xfz.cn/1528267503_674.jpg-website.news.list" alt="">
+                                </a>
+                            </div>
+                            <div class="news-group">
+                                <p class="title"><a href="">比亚迪  百度Apollo  大道用车三方携手创新共享汽车新模式</a></p>
+                                <p class="desc">小饭桌6月6日消息，比亚迪、百度Apollo、大道用车联合对外宣布，三方已就新能源汽车、无人驾驶技术以及车辆资产的共享运营签署战略合作协议。</p>
+                                <p class="more">
+                                    <span class="category">创业资讯</span>
+                                    <span class="author">拓跋晔</span>
+                                    <span class="pub-date">12小时前</span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {% include 'base/siderbar.html' %}
+        </div>
+    </div>
+{% endblock %}

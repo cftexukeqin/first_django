@@ -1,0 +1,196 @@
+
+{% extends 'base/front_base.html' %}
+{% block title %}
+课程详情
+{% endblock %}
+{% block head %}
+     <link rel="stylesheet" href="{% static 'css/course/course_detail.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/course/video-js.min.css' %}">
+{% endblock %}
+{% block main %}
+    <div class="main">
+        <div class="nav-wrapper">
+            <div class="course-nav">
+                <h3 class="title">在线课堂</h3>
+                <ul class="course-list">
+                    <li class="active"><a href="">最新课堂</a></li>
+                    <li><a href="">投资人说</a></li>
+                    <li><a href="">明星案例</a></li>
+                    <li><a href="">创业知识</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="top-wrapper">
+                <div class="course-info">
+                    <p class="course-title">天道酬勤，只要坚持一定可以成功</p>
+                    <div class="share-pay-group">
+                        <div class="share-group">
+                            <p class="title">分享至：</p>
+                        </div>
+                        <div class="pay-info">
+                            <span class="pay">￥99.9</span>
+                            <a href="" class="pay-btn">立即购买</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-video">
+                    <video id="my-video" class="video-js" controls preload="auto" width="1180px" height="495px"
+                           poster="{% static 'images/course_banner/video1.jpg' %}" data-setup="{}">
+                        <source src="http://jq22com.qiniudn.com/jq22-sp.mp4" type="video/mp4">
+                        <p class="vjs-no-js">
+                            To view this video please enable JavaScript, and consider upgrading to a web browser that
+                            <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                        </p>
+                    </video>
+                    <script src="{% static 'js/course_detail_js/course_video/video.min.js' %}"></script>
+                    <script type="text/javascript">
+                        var myPlayer = videojs('my-video');
+                        videojs("my-video").ready(function () {
+                            var myPlayer = this;
+                            {#myPlayer.play();#}
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="bottom-wrapper">
+                <div class="course-detail-group">
+                    <div class="item-group">
+                        <p class="item-title">课程讲师</p>
+                        <div class="teacher-group">
+                            <div class="avatar-group">
+                                <img src="https://static-image.xfz.cn/1526030386_640.png" alt="">
+                            </div>
+                            <div class="teacher-info">
+                                <p class="teacher-name">治疗大侠</p>
+                                <p class="teacher-desc">远瞻资本创始合伙人、总裁 、上海科委特约专家</p>
+                            </div>
+                        </div>
+                        <p class="teacher-detail">
+                            李喆，曾担任过两个上市公司高管职务，同时也是一个创业者，2011年创立了远瞻资本，并把远瞻资本逐步发展成为极具成长力、跨PE/VC/天使的综合投资公司。远瞻资本在中国美国均有投资，曾经成功投资过DJI大疆创新航拍飞行器、12Twenty软件、Onewheel智能硬件、
+                            禾赛仪器及火辣健身等诸多互联网新锐公司。李喆先生持有南开大学经济学硕士学位和UCLA Anderson商学院MBA学位。
+                        </p>
+                    </div>
+                    <div class="item-group">
+                        <p class="item-title">课程简介</p>
+
+                        <p class="teacher-detail">
+                            希望顺利融资，就需要：<br>
+了解融资背后的道理<br>
+了解投资人的诉求<br>
+了解行业内约定俗成的工作方式<br>
+了解投资人的思考和分析模式
+                        </p>
+                    </div>
+                    <div class="item-group">
+                        <p class="item-title">课程大纲</p>
+                        <p class="teacher-detail">
+                           一、私募市场的投资人是谁<br> 二、对于募资路演的通常误解<br>三、募资的过程及时间预期<br>
+                        四、募资的规模预期以及估值方法<br>五、投资人的总体逻辑<br>六、不同轮次投资的主要任务<br>七、商业计划书的必备内容<br>八、投资人判断什么<br>
+                        九、投资人观察什么<br>十、计划书撰写及宣讲的注意事项<br>十一、常见交易结构简介
+                        </p>
+                    </div>
+                    <div class="item-group">
+                        <p class="item-title">课程信息</p>
+                        <p class="teacher-detail">
+                            李喆，曾担任过两个上市公司高管职务，同时也是一个创业者，2011年创立了远瞻资本，并把远瞻资本逐步发展成为极具成长力、跨PE/VC/天使的综合投资公司。远瞻资本在中国美国均有投资，曾经成功投资过DJI大疆创新航拍飞行器、12Twenty软件、Onewheel智能硬件、
+                            禾赛仪器及火辣健身等诸多互联网新锐公司。李喆先生持有南开大学经济学硕士学位和UCLA Anderson商学院MBA学位。
+                        </p>
+                    </div>
+                    <div class="item-group">
+                        <p class="item-title">帮助中心</p>
+
+                        <p class="teacher-detail">
+                            李喆，曾担任过两个上市公司高管职务，同时也是一个创业者，2011年创立了远瞻资本，并把远瞻资本逐步发展成为极具成长力、跨PE/VC/天使的综合投资公司。远瞻资本在中国美国均有投资，曾经成功投资过DJI大疆创新航拍飞行器、12Twenty软件、Onewheel智能硬件、
+                            禾赛仪器及火辣健身等诸多互联网新锐公司。李喆先生持有南开大学经济学硕士学位和UCLA Anderson商学院MBA学位。
+                        </p>
+                    </div>
+                    <div class="item-group">
+                        <p class="item-title">关于小饭桌课程</p>
+                        <p class="teacher-detail">
+                            李喆，曾担任过两个上市公司高管职务，同时也是一个创业者，2011年创立了远瞻资本，并把远瞻资本逐步发展成为极具成长力、跨PE/VC/天使的综合投资公司。远瞻资本在中国美国均有投资，曾经成功投资过DJI大疆创新航拍飞行器、12Twenty软件、Onewheel智能硬件、
+                            禾赛仪器及火辣健身等诸多互联网新锐公司。李喆先生持有南开大学经济学硕士学位和UCLA Anderson商学院MBA学位。
+                        </p>
+                    </div>
+                </div>
+                <div class="recommand-wrapper">
+                    <p class="title">推荐课堂</p>
+                    <ul class="course-img">
+                        <li><a href="">
+                            <img src="https://static-image.xfz.cn/1513655131_852.png-course.list.small" alt="">
+                        </a></li>
+                        <li><a href="">
+                            <img src="https://static-image.xfz.cn/1513753715_100.jpg-course.list.small" alt="">
+                        </a></li>
+                    </ul>
+                    <ul class="course-wrapper">
+                        <li>
+                            <a href="#">
+                                <div class="left-box">
+                                <p class="course-title">
+                                    创业公司如何进行商业模式梳理？
+                                </p>
+                                <p class="course-author">
+                                    福禄娃/小饭桌|寒武纪副总裁
+                                </p>
+                            </div>
+                                <div class="right-box">
+                                <img class="thunmnail"
+                                     src="https://static-image.xfz.cn/1493176122_358.jpg-course.list.small" alt="">
+                            </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="left-box">
+                                <p class="course-title">
+                                    创业公司如何进行商业模式梳理？
+                                </p>
+                                <p class="course-author">
+                                    福禄娃/小饭桌|寒武纪副总裁
+                                </p>
+                            </div>
+                                <div class="right-box">
+                                <img class="thunmnail"
+                                     src="https://static-image.xfz.cn/1513067515_281.png-course.list.small" alt="">
+                            </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="left-box">
+                                <p class="course-title">
+                                    创业公司如何进行商业模式梳理？
+                                </p>
+                                <p class="course-author">
+                                    福禄娃/小饭桌|寒武纪副总裁
+                                </p>
+                            </div>
+                                <div class="right-box">
+                                <img class="thunmnail"
+                                     src="https://static-image.xfz.cn/1493175650_368.jpg-course.list.small" alt="">
+                            </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="left-box">
+                                <p class="course-title">
+                                    创业公司如何进行商业模式梳理？
+                                </p>
+                                <p class="course-author">
+                                    福禄娃/小饭桌|寒武纪副总裁
+                                </p>
+                            </div>
+                                <div class="right-box">
+                                <img class="thunmnail"
+                                     src="https://static-image.xfz.cn/1513067515_281.png-course.list.small" alt="">
+                            </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

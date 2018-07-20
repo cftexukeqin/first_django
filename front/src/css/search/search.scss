@@ -1,0 +1,179 @@
+@import "../common/init";
+@import "../common/constansts";
+@import "../common/header";
+@import "../common/footer";
+@import "../common/body";
+@import "../common/news_list";
+
+.main{
+  width:100%;
+  margin-top: $navHeight+20px;
+  .wrapper{
+    width: $pageWidthh;
+    overflow: hidden;
+    margin: 0 auto;
+    .main-content-wrapper{
+      float: left;
+      width: $mainboxWidth;
+      background: #ffffff;
+      .search-box{
+        width: 100%;
+        overflow: hidden;
+        padding: 50px 30px;
+        box-sizing: border-box;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        input{
+          float: left;
+          width: 660px;
+          height: 46px;
+          border-radius: 1px;
+          border:1px solid #ccc;
+          font-size: 20px;
+          padding: 10px;
+          box-sizing: border-box;
+        }
+        .search-btn{
+          float: left;
+          height: 46px;
+          line-height: 46px;
+          width: 120px;
+          color: #fff;
+          background: #5b86db;
+          border-radius:2px;
+          text-align: center;
+          cursor: pointer;
+          outline: none;
+        }
+      }
+      .hot-recommand-wrapper{
+        .item-title{
+          font-size: 18px;
+          font-weight: 400;
+          color: #212121;
+          line-height: 18px;
+          padding-left: 16px;
+          padding-top: 16px;
+          box-sizing: border-box;
+        }
+        .search-group{
+          @include news_list
+        }
+      }
+    }
+    .sidebar-wrapper {
+      float: right;
+      width: 320px;
+      background: white;
+      .title-group{
+        padding: 20px;
+        overflow: hidden;
+        .title{
+          font-size: 20px;
+          float: left;
+          color: #212121;
+        }
+        .more{
+          float: right;
+          font-size: 14px;
+          color: #5c87d9;
+        }
+      }
+      .advirtise-group{
+        img{
+          width: 100%;
+        }
+      }
+      .focus-group{
+        padding: 0 20px;
+        overflow: hidden;
+        .left-group{
+          width: 160px;
+          float: left;
+          li{
+            background: url("https://www.xfz.cn/static/build/images/side-icon.png") no-repeat;
+            background-size: 50px;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            margin-bottom: 18px;
+            a{
+              font-size: 14px;
+              color: #878787;
+              float: left;
+              margin-left:60px;
+            }
+          }
+          .zhihu{
+            background-position: 0 0;
+          }
+          .weibo{
+            background-position: 0 -65px;
+          }
+          .toutiao{
+            background-position: 0 -125px;
+          }
+        }
+        .right-group{
+          float: right;
+          width:100px;
+          background: url("https://www.xfz.cn/static/build/images/wxQr.jpg") no-repeat;
+          background-size: 100%;
+          .desc{
+            margin-top: 100px;
+            font-size: 12px;
+            color: #878787;
+          }
+        }
+      }
+      .hot-news-group{
+
+        .list-group{
+          li{
+            padding: 0 20px 20px;
+            overflow: hidden;
+            .left-group{
+              float: left;
+              width: 170px;
+              height: 80px;
+              position: relative;
+              .title{
+                font-size: 14px;
+                a{
+                  color: #212121;
+                  &:hover{
+                    color: #5c87d9;
+                  }
+                }
+              }
+              .more{
+                font-size: 12px;
+                color: #878787;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                position: absolute;
+                overflow: hidden;
+                .category{
+                  float: left;
+                }
+                .pub-date{
+                  float: right;
+                }
+              }
+            }
+            .right-group{
+              float: right;
+              height: 80px;
+              width: 100px;
+              img{
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

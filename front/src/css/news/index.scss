@@ -1,0 +1,264 @@
+@import "../common/init";
+@import "../common/constansts";
+@import "../common/header";
+@import "../common/footer";
+@import "../common/body";
+@import "../common/news_list";
+
+// 中间的盒子
+.main{
+  width: 100%;
+  margin-top: $navHeight + 20px;
+  // 左边的显示盒子，有轮播图，新闻
+  .wrapper{
+    width: $pageWidthh;
+    margin: 0 auto;
+    overflow: hidden;
+    // 新闻盒子
+    .main-content-wrapper{
+      $bannerWidth:$mainboxWidth;
+      $bannerHeight:220px;
+      float: left;
+      width: $mainboxWidth;
+      // 轮播图盒子
+      .banner-group{
+        width: $bannerWidth;
+        height: $bannerHeight;
+        background: #5c87d9;
+        position: relative;
+        overflow: hidden;
+        // 一般列表显示的元素，可以使用ul-li的样式
+        // 中间显示轮播图的盒子要求是相对定位
+        // 轮播图移动是绝对定位，他的参考相对的是父节点的相对定位
+        .banner-ul{
+          overflow: hidden;
+          width: $bannerWidth*4;
+          position: relative;
+          li{
+            // 左浮动，然后就可以显示成一列了
+            float: left;
+            width: $bannerWidth;
+            img{
+              width: $bannerWidth;
+              height: $bannerHeight;
+            }
+          }
+        }
+        .arrow{
+          font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+          position: absolute;
+          font-size:80px;
+          text-align: center;
+          line-height: $bannerHeight;
+          z-index: 1;
+          color: #ffffff;
+          cursor: pointer;
+          display: none;
+        }
+        .left-arrow{
+          left: 20px;
+        }
+        .right-arrow{
+          right: 20px;
+        }
+        .page-control-group{
+          position: absolute;
+          left:0;
+          right: 0;
+          bottom: 20px;
+          .page-control{
+            margin: 0 auto;
+            overflow: hidden;
+            //width: 12px*4+64px;
+
+            li{
+              width: 12px;
+              height: 12px;
+              border:1px solid #ffffff;
+              border-radius: 50px;
+              float: left;
+              margin: 0 8px;
+              cursor: pointer;
+              box-sizing: border-box;
+              &.active{
+                background: white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.main{
+  .wrapper{
+    .main-content-wrapper{
+      overflow: hidden;
+      .list-outer-group {
+        width: 100%;
+        background: #ffffff;
+        overflow: hidden;
+        margin-top: 10px;
+        .list-tab {
+          border: 1px solid #eee;
+          border-left: none;
+          border-right: none;
+          height: 66px;
+          li {
+            float: left;
+            padding: 0 10px;
+            margin-top: 22px;
+            a {
+              color: #878787;
+              text-decoration: none;
+            }
+            &:first-of-type{
+              border-left: 5px solid #5c87d9;
+            }
+            &.active{
+              a{
+                color: #212121;
+              }
+            }
+        }
+        }
+        .list-inner-group{
+          @include news_list
+      }
+        .load-more-group{
+          padding: 20px 0;
+          text-align: center;
+          .load-more{
+            background: #d2dcea;
+            width: 400px;
+            height: 40px;
+            line-height: 40px;
+            color: #6d85ac;
+            font-size: 14px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+.main{
+  .wrapper{
+    .sidebar-wrapper {
+      float: right;
+      width: 320px;
+      background: white;
+      .title-group{
+        padding: 20px;
+        overflow: hidden;
+        .title{
+          font-size: 20px;
+          float: left;
+          color: #212121;
+        }
+        .more{
+          float: right;
+          font-size: 14px;
+          color: #5c87d9;
+        }
+      }
+      .advirtise-group{
+        img{
+          width: 100%;
+        }
+      }
+      .focus-group{
+        padding: 0 20px;
+        overflow: hidden;
+        .left-group{
+          width: 160px;
+          float: left;
+          li{
+            background: url("https://www.xfz.cn/static/build/images/side-icon.png") no-repeat;
+            background-size: 50px;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            margin-bottom: 18px;
+            a{
+              font-size: 14px;
+              color: #878787;
+              float: left;
+              margin-left:60px;
+            }
+          }
+          .zhihu{
+            background-position: 0 0;
+          }
+          .weibo{
+            background-position: 0 -65px;
+          }
+          .toutiao{
+            background-position: 0 -125px;
+          }
+        }
+        .right-group{
+          float: right;
+          width:100px;
+          background: url("https://www.xfz.cn/static/build/images/wxQr.jpg") no-repeat;
+          background-size: 100%;
+          .desc{
+            margin-top: 100px;
+            font-size: 12px;
+            color: #878787;
+          }
+        }
+      }
+      .hot-news-group{
+
+        .list-group{
+          li{
+            padding: 0 20px 20px;
+            overflow: hidden;
+            .left-group{
+              float: left;
+              width: 160px;
+              height: 80px;
+              position: relative;
+              .title{
+                font-size: 14px;
+                a{
+                  color: #212121;
+                  &:hover{
+                    color: #5c87d9;
+                  }
+                }
+              }
+              .more{
+                font-size: 12px;
+                color: #878787;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                position: absolute;
+                overflow: hidden;
+                .category{
+                  float: left;
+                }
+                .pub-date{
+                  float: right;
+                }
+              }
+            }
+            .right-group{
+              float: right;
+              height: 80px;
+              width: 110px;
+              img{
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

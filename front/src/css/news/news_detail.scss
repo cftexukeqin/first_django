@@ -1,0 +1,301 @@
+@import "../common/header";
+@import "../common/init";
+@import "../common/footer";
+@import "../common/body";
+@import "../common/constansts";
+body{
+  background: #f2f2f2;
+}
+.main{
+  margin-top: $navHeight+20px;
+  width: 100%;
+  .wrapper{
+    overflow: hidden;
+    margin: 0 auto;
+    width: $pageWidthh;
+    .main-content-wrapper{
+      padding: 20px;
+      float: left;
+      width: $mainboxWidth;
+      background: #ffffff;
+      box-sizing: border-box;
+      .news-wrapper{
+        width: 100%;
+        overflow: hidden;
+        font-family: 'Microsoft YaHei',Helvetica,Arial,sans-serif;
+        .title{
+          color: #212121;
+          font-weight: 400;
+          font-size: 24px;
+          margin-bottom: 20px;
+        }
+        .news-info{
+            overflow: hidden;
+            height: 28px;
+            line-height: 28px;
+            font-size: 14px;
+            color: #878787;
+          .info-group{
+            float: left;
+            overflow: hidden;
+            .pub-date{
+              margin-left: 20px;
+            }
+            .category{
+              margin-left: 20px;
+              background: #5c87d9;
+              border-radius: 2px;
+              color: white;
+              padding: 0 5px;
+            }
+        }
+          .share-info {
+            float: right;
+            overflow: hidden;
+            font-size: 14px;
+            span {
+              float: left;
+            }
+            .weixin {
+              float: left;
+              width: 28px;
+              height: 28px;
+              background: url("https://www.xfz.cn/static/build/images/share.png") no-repeat;
+              background-size: 220%;
+              background-position: 0 0;
+              margin-left: 8px;
+            }
+            .weibo {
+              float: left;
+              width: 28px;
+              height: 28px;
+              background: url("https://www.xfz.cn/static/build/images/share.png") no-repeat;
+              background-size: 220%;
+              background-position: -30px 0;
+              margin-left: 8px;
+            }
+          }
+        }
+        .artile{
+          width: $mainboxWidth;
+          img{
+            max-width: 100%;
+          }
+        }
+      }
+      .comment-wrapper{
+        h3{
+          border-bottom: 1px solid #5c87d9;
+        }
+        margin-top: 20px;
+        border-top: 1px solid #ededed;
+        padding: 20px 0;
+        overflow: hidden;
+        .textarea-comment{
+          width: 100%;
+          outline: none;
+          border-radius: 5px;
+          font-size: 16px;
+          margin-top: 20px;
+          resize: none;
+          box-sizing: border-box;
+          height: 40px;
+          line-height: 26px;
+          }
+        .nologin-textarea{
+          height: 40px;
+          line-height: 26px;
+          overflow: hidden;
+        }
+        .logined-textarea{
+          height: 80px;
+        }
+        .submit-btn{
+          float: right;
+          margin-top: 10px;
+          .commit-btn{
+            width:70px;
+            height: 30px;
+            background: #5c87d9;
+            font-size: 16px;
+            border-radius: 2px;
+            color: white;
+            border: none;
+            cursor: pointer;
+          }
+        }
+        .comment-list{
+          margin-top: 60px;
+          overflow: hidden;
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #5c87d9;
+          border-radius: 10px;
+          box-sizing: border-box;
+          .title{
+            font-size: 24px;
+            padding: 10px 20px;
+            font-weight: 200  ;
+          }
+          li{
+            border-bottom: 1px solid #c9c9c9;
+            padding: 20px;
+            .comment-info{
+              margin: 20px 0;
+              height: 40px;
+              width: 100%;
+              font-size: 14px;
+              color: #878787;
+              .avatar{
+                float: left;
+                width: 40px;
+                height: 40px;
+              }
+              .author{
+                float: left;
+                margin-left: 20px;
+              }
+              .pub-date{
+                float: right;
+                margin-left: 20px;
+              }
+            }
+          }
+          .comment-content{
+            margin: 10px 60px;
+          }
+          .manage-comment{
+            overflow: hidden;
+            font-size: 12px;
+            color: #5c87d9;
+            .reply{
+              float: right;
+              padding-left: 10px;
+            }
+            .cancel{
+              float: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.main{
+  .wrapper{
+    .sidebar-wrapper {
+      float: right;
+      width: 320px;
+      background: white;
+      .title-group{
+        padding: 20px;
+        overflow: hidden;
+        .title{
+          font-size: 20px;
+          float: left;
+          color: #212121;
+        }
+        .more{
+          float: right;
+          font-size: 14px;
+          color: #5c87d9;
+        }
+      }
+      .advirtise-group{
+        img{
+          width: 100%;
+        }
+      }
+      .focus-group{
+        padding: 0 20px;
+        overflow: hidden;
+        .left-group{
+          width: 160px;
+          float: left;
+          li{
+            background: url("https://www.xfz.cn/static/build/images/side-icon.png") no-repeat;
+            background-size: 50px;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            margin-bottom: 18px;
+            a{
+              font-size: 14px;
+              color: #878787;
+              float: left;
+              margin-left:60px;
+            }
+          }
+          .zhihu{
+            background-position: 0 0;
+          }
+          .weibo{
+            background-position: 0 -65px;
+          }
+          .toutiao{
+            background-position: 0 -125px;
+          }
+        }
+        .right-group{
+          float: right;
+          width:100px;
+          background: url("https://www.xfz.cn/static/build/images/wxQr.jpg") no-repeat;
+          background-size: 100%;
+          .desc{
+            margin-top: 100px;
+            font-size: 12px;
+            color: #878787;
+          }
+        }
+      }
+      .hot-news-group{
+
+        .list-group{
+          li{
+            padding: 0 20px 20px;
+            overflow: hidden;
+            .left-group{
+              float: left;
+              width: 170px;
+              height: 80px;
+              position: relative;
+              .title{
+                font-size: 14px;
+                a{
+                  color: #212121;
+                  &:hover{
+                    color: #5c87d9;
+                  }
+                }
+              }
+              .more{
+                font-size: 12px;
+                color: #878787;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                position: absolute;
+                overflow: hidden;
+                .category{
+                  float: left;
+                }
+                .pub-date{
+                  float: right;
+                }
+              }
+            }
+            .right-group{
+              float: right;
+              height: 80px;
+              width: 100px;
+              img{
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

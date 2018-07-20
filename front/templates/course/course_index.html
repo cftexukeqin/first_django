@@ -1,0 +1,119 @@
+
+{% extends 'base/front_base.html' %}
+{% block title %}
+课程首页
+{% endblock %}
+{% block head %}
+ <link rel="stylesheet" href="{% static 'css/course/course_index.min.css'%}">
+    <link rel="stylesheet" href="{% static '/css/course/style.css' %}">
+    <script src="{% static 'js/course_detail_js/jquery.1.7.2.min.js' %}"></script>
+    <script src="{% static 'js/course_detail_js/jquery.img_silder.min.js' %}"></script>
+    <script>
+        $(function(){
+            $('#silder').imgSilder({
+				s_width:'100%',
+				s_height:450,
+				is_showTit:true,
+				s_times:3000,
+				css_link:'css/style.css'
+			});
+		});
+    </script>
+{% endblock %}
+{% block main %}
+    <div class="main">
+        <div class="nav-wrapper">
+            <div class="course-nav">
+                <h3 class="title">在线课堂</h3>
+                <ul class="course-list">
+                    <li class="active"><a href="">最新课堂</a></li>
+                    <li><a href="">投资人说</a></li>
+                    <li><a href="">明星案例</a></li>
+                    <li><a href="">创业知识</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="silder" id="silder">
+            <ul class="silder_list" id="silder_list">
+                <li><img src="https://static-image.xfz.cn/1513655131_852.png" border="0" alt="激情小饭桌"></li>
+                <li><img src="https://static-image.xfz.cn/1528448527_528.jpg" border="0" alt="励志小饭桌"></li>
+                <li><img src="../../src/images/course_banner/3.jpg" border="0" alt="睿智小饭桌"></li>
+                <li><img src="../../src/images/course_banner/4.jpg" border="0" alt="财富小饭桌"></li>
+            </ul>
+        </div>
+        <div class="wrapper">
+            <ul class="course-group">
+                <li>
+                    <a href="">
+                        <div class="thumbnail-group">
+                            <img class="thumbnail" src="https://static-image.xfz.cn/1526455098_289.png-course.list.small" alt="">
+                        </div>
+                        <div class="course-info">
+                            <p class="title">天道酬勤，寒门一定能出贵子</p>
+                            <p class="author">墨箫天下</p>
+                            <p class="pay-group">
+                                <span class="free">免费</span>
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="thumbnail-group">
+                            <img class="thumbnail" src="https://static-image.xfz.cn/1526455098_289.png-course.list.small" alt="">
+                        </div>
+                        <div class="course-info">
+                            <p class="title">天道酬勤，寒门一定能出贵子</p>
+                            <p class="author">墨箫天下</p>
+                            <p class="pay-group">
+                                <span class="free">免费</span>
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="thumbnail-group">
+                            <img class="thumbnail" src="https://static-image.xfz.cn/1526455098_289.png-course.list.small" alt="">
+                        </div>
+                        <div class="course-info">
+                            <p class="title">天道酬勤，寒门一定能出贵子</p>
+                            <p class="author">墨箫天下</p>
+                            <p class="pay-group">
+                                <span class="free">免费</span>
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="thumbnail-group">
+                            <img class="thumbnail" src="https://static-image.xfz.cn/1526455098_289.png-course.list.small" alt="">
+                        </div>
+                        <div class="course-info">
+                            <p class="title">天道酬勤，寒门一定能出贵子</p>
+                            <p class="author">墨箫天下</p>
+                            <p class="pay-group">
+                                <span class="free">免费</span>
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="thumbnail-group">
+                            <img class="thumbnail" src="https://static-image.xfz.cn/1526455098_289.png-course.list.small" alt="">
+                        </div>
+                        <div class="course-info">
+                            <p class="title">天道酬勤，寒门一定能出贵子</p>
+                            <p class="author">墨箫天下</p>
+                            <p class="pay-group">
+                                <span class="free">免费</span>
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

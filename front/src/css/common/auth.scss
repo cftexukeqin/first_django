@@ -1,0 +1,174 @@
+@import "../common/constansts";
+@import "../common/init";
+
+.mask-wrapper{
+position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    //overflow: scroll;
+    overflow-y: scroll;
+    display:none;
+
+    .auth-wrapper{
+        $authWrapperHeight: 520px;
+        $authWrapperWidth: 400px;
+        width: $authWrapperWidth;
+        height: $authWrapperHeight;
+        //background: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -$authWrapperWidth/2;
+        margin-top: -$authWrapperHeight/2;
+        z-index: 99;
+        border-radius: 10px;
+        overflow: hidden;
+        .close-wrapper{
+            width: 100%;
+            height: 40px;
+            background: #2b2b36;
+
+            .close-btn{
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                float: right;
+                margin-top: 10px;
+                color: #FFF;
+                cursor: pointer;
+            }
+        }
+
+        .auth-inner-wrapper{
+            width: 100%;
+            height: $authWrapperHeight - 40px;
+            position: relative;
+            overflow: hidden;
+
+            .scroll-wrapper{
+                width: $authWrapperWidth*2;
+                //height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                //background: #2b2b36;
+
+                .auth-group{
+                    width: $authWrapperWidth;
+                    padding: 0 20px 20px;
+                    box-sizing: border-box;
+                    background: #2b2b36;
+                    .top-group{
+                        height: 36px;
+                        border-bottom: 1px solid #cccccc;
+                        line-height: 34px;
+                        .title{
+                            float: left;
+                            color: #ffffff;
+                            border-bottom: 3px solid #5c87d9;
+                        }
+                        .switch{
+                            float: right;
+                            color: #ffffff;
+                        }
+                    }
+
+                    .form-group{
+                        margin-top: 20px;
+                        .input-group{
+                            margin-bottom: 10px;
+                            height: 40px;
+                            .form-control{
+                                padding: 10px;
+                                width: 100%;
+                                box-sizing: border-box;
+                                height: 40px;
+                                outline: none;
+                                background: #2b2b36;
+                            }
+                            .remember-label{
+                                font-size: 14px;
+                                color: #c0c0c0;
+                            }
+                            .pwd-reset{
+                                float: right;
+                                color: #c0c0c0;
+                                font-size: 14px;
+                                &:hover{
+                                    color: #fe4646;
+                                }
+                            }
+                            .submit-btn{
+                                width: 100%;
+                                height: 40px;
+                                background: #3ca751;
+                                border: none;
+                                color: #fff;
+                                cursor: pointer;
+                                &:hover{
+                                    background: #C70B31;
+                                }
+                            }
+                            .short-input-group{
+                                width: 250px;
+                                float: left;
+                            }
+                            .input-group-addon{
+                                float: right;
+                                width: 100px;
+                                .sms-captcha-btn{
+                                    width: 100%;
+                                    height: 40px;
+                                    border: 1px solid #5c87d9;
+                                    color: #5c87d9;
+                                    display: inline-block;
+                                    text-align: center;
+                                    line-height: 40px;
+                                    box-sizing: border-box;
+                                    cursor: pointer;
+                                    font-size: 14px;
+                                }
+                                .disabled{
+                                    color: #cccccc;
+                                    border-color: #cccccc;
+                                }
+
+                            }
+                            input[type='text']{
+                                color: #9199aa;
+                                font-size: 18px;
+                                border: none;
+                                outline: none;
+                                border-bottom: 0.5px solid #484856;
+                            }
+                            input[type='password']
+                            {
+                                color: #dd3e3e;
+                                font-size: 18px;
+                                border: none;
+                                outline: none;
+                                border-bottom: 0.5px solid #484856;
+                            }
+                            .submit-btn{
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+
+                .signin-group{
+                    float: left;
+                    background: #2b2b36;
+
+                }
+                .signup-group{
+                    float: left;
+                    background: #2b2b36;
+                    }
+                }
+            }
+        }
+    }

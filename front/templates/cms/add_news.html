@@ -1,0 +1,71 @@
+{% extends 'cms/base.html' %}
+{% block title %}
+
+{% endblock %}
+{% block head %}
+    <script src="https://unpkg.com/qiniu-js@2.4.0/dist/qiniu.min.js"></script>
+    <script src="{% static 'ueditor/ueditor.config.js' %}"></script>
+    <script src="{% static 'ueditor/ueditor.all.min.js' %}"></script>
+    <script src="{% static 'js/add_news.min.js' %}"></script>
+
+{% endblock %}
+{% block content-header %}
+<h1>新闻发布</h1>
+{% endblock %}
+{% block content %}
+<div class="row">
+<div class="col-md-12">
+    <div class="box box-primary">
+{#        <div class="box-header with-border"></div>#}
+        <form role="form">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="title-form">标题</label>
+                    <input type="text" id="title-form" class="form-control" name="title">
+                </div>
+                <div class="form-group">
+                    <label for="select-form">分类</label>
+                    <select class="form-control" name="category" id="select-form">
+                        {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="desc-form">描述</label>
+                    <input type="text" id="desc-form" class="form-control" name="desc">
+                </div>
+                <div class="form-group">
+                    <label for="thumbnail-form">缩略图</label>
+                    <div class="input-group">
+                        <input type="text" id="thumbnail-form" class="form-control" name="thumbnail">
+                        <span class="input-group-btn">
+                            <label class="btn btn-default btn-file">
+                                添加图片<input hidden id="thumbnail-btn"  type="file" style="" class="btn btn-default">
+                            </label>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group" style="display: none" id="progess-group">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                            0
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="content-form">内容</label>
+{#                    <textarea class="form-control" name="content" id="content-form" cols="30" rows="10"></textarea>#}
+                    <script id="container" type="text/plain"></script>
+                </div>
+            </div>
+            <div class="box-footer">
+                <button id="submit-Btn" class="btn btn-primary pull-right">发布新闻</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+</div>
+{% endblock %}

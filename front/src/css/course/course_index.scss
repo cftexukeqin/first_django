@@ -1,0 +1,109 @@
+@import "../common/init.scss";
+@import "../common/constansts.scss";
+@import "../common/header";
+@import "../common/footer";
+@import "../common/body";
+
+.main{
+  margin-top: 64px;
+  //background: #7ed321;
+  .nav-wrapper{
+    width: 100%;
+    background: #ffffff;
+    height: 64px;
+    margin-top: 54px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    .course-nav{
+      width: $pageWidthh;
+      margin: 0 auto;
+      overflow: hidden;
+      line-height: 64px;
+      .title{
+        float: left;
+        font-size: 24px;
+        color: #212121;
+        font-weight: 400;
+      }
+      .course-list{
+        float: left;
+        overflow: hidden;
+        margin-left: 50px;
+        li{
+          float: left;
+          margin-left: 40px;
+          a{
+            color: #878787;
+          }
+          &.active{
+            a{
+              color: #212121;
+            }
+          }
+        }
+      }
+    }
+  }
+  .silder{
+    margin-top: 20px;
+  }
+  .wrapper{
+    margin-top: 470px;
+    margin-left: auto;
+    margin-right: auto;
+    width: $pageWidthh;
+    .course-group{
+      display: flex;
+      flex-direction: row;
+      justify-content:space-between;
+      flex-wrap: wrap;
+      margin:10px 0;
+      &:after{
+        content: "";
+        flex: auto;
+      }
+      li {
+        $courseHeight:280px;
+        $imgHeight:156px;
+        width: 278px;
+        height: $courseHeight;
+        background: #ffffff;
+        margin-top: 20px;
+        &:hover{
+          box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .thumbnail-group {
+          width: 100%;
+          height: $imgHeight;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .course-info {
+          padding: 16px;
+          box-sizing: border-box;
+          position: relative;
+          height: $courseHeight - $imgHeight;
+          .title {
+            color: #212121;
+          }
+          .author {
+            font-size: 14px;
+            color: #878787;
+            margin-top: 10px;
+          }
+          .pay-group {
+            position: absolute;
+            right: 16px;
+            left: 16px;
+            bottom: 16px;
+            text-align: right;
+            .free {
+              color: #7ed321;
+            }
+          }
+        }
+      }
+    }
+  }
+}
