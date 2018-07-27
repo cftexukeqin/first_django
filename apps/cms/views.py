@@ -186,6 +186,7 @@ class NewsListView(View):
             'title':title,
             'category_id':category_id
         }
+        # 拼接好的查询字符串
         print(context['url_query'])
         context.update(context_data)
         return render(request, 'cms/news_lists.html', context=context)
@@ -217,6 +218,7 @@ class NewsListView(View):
             'num_pages': num_pages
         }
         return context
+#新闻编辑
 class EditNews(View):
     def get(self,request):
         id = request.GET.get('id')
@@ -239,7 +241,7 @@ class EditNews(View):
             return restful.ok()
         else:
             return restful.paramserror(message=form.get_error())
-
+#新闻删除
 def del_news(request):
     form = DelNewsForm(request.POST)
     if form.is_valid():

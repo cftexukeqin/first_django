@@ -45,8 +45,8 @@ class Captcha(object):
     #用来随机生成一个字符串(包括英文和数字)
     # 定义成类方法,然后是私有的,对象在外面不能直接调用
     @classmethod
-    def gene_text(cls):
-        return ''.join(random.sample(cls.SOURCE,cls.number))#number是生成验证码的位数
+    def gene_text(cls,num=4):
+        return ''.join(random.sample(cls.SOURCE,num))#number是生成验证码的位数
 
     #用来绘制干扰线
     @classmethod

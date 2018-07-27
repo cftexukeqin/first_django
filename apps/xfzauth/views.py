@@ -82,7 +82,7 @@ def sms_captcha(request):
         exists = User.objects.filter(telephone=telephone).exists()
         if exists:
             return restful.paramserror(message='该手机已被注册！')
-        code = Captcha.gene_text(number=6)
+        code = Captcha.gene_text(num=6)
         dxcache.set(telephone,code)
         # send_result = alidysmssend.send_sms(telephone,code)
         # if send_result:

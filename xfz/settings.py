@@ -25,7 +25,7 @@ SECRET_KEY = 'lpmk-2(xxqgz+q3@x(9db7n9y6j$=*f+-w^afp8i#-iql48(vb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','118.126.108.129']
 
 # Application definition
 
