@@ -1,0 +1,107 @@
+{% extends 'cms/base.html' %}
+{% load  time_filter %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'adminlte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}">
+    <script src="{% static 'adminlte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'adminlte/bower_components/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-CN.js' %}"></script>
+{% endblock %}
+{% block title %}
+
+{% endblock %}
+{% block content-header %}
+课程列表
+{% endblock %}
+{% block content %}
+<div class="row">
+<div class="col-md-12">
+    <div class="box box-primary">
+{#        <div class="box-header with-border">#}
+{#            <button id="addBtn" class="btn btn-primary pull-right">添加分类</button>#}
+{#        </div>#}
+        <div class="box box-header">
+            <form action="{% url 'cms:news_lists' %}" class="form-inline" method="get">
+                <div class="form-group left-group">
+                    <label for="">时间：</label>
+                    {% if start %}
+                        <input type="text" id="startpicker" value="{{ start }}" class="form-control" name="start" placeholder="开始时间" readonly style="text-align: center;">
+                    {% else %}
+                        <input type="text" id="startpicker" class="form-control" name="start" placeholder="开始时间" readonly style="text-align: center;">
+                    {% endif %}
+                    <span>-</span>
+                {% if end %}
+                    <input type="text" id="endpicker" value="{{ end }}" class="form-control" name="end" placeholder="结束时间" readonly style="text-align: center;">
+                {% else %}
+                    <input type="text" id="endpicker" class="form-control" name="end" placeholder="结束时间" readonly style="text-align: center;">
+                {% endif %}
+                </div>
+                <div class="form-group left-group">
+                    <label for="">标题：</label>
+                    {% if title %}
+                        <input type="text" class="form-control" name="title" placeholder="关键字" value="{{ title }}">
+                    {% else %}
+                        <input type="text" class="form-control" name="title" placeholder="关键字">
+                    {% endif %}
+                </div>
+                <div class="form-group left-group">
+                    <label for="">分类：</label>
+                    <select name="category" id="">
+                        {% if category_id == 0%}
+                            <option value="0" selected>所有分类</option>
+                            {% else %}
+                            <option value="0">所有分类</option>
+                        {% endif %}
+                        {% for category in categories %}
+                            {% if category_id == category.id%}
+                                <option value="{{ category.id }}" selected>{{ category.name }}</option>
+                                {% else %}
+                                <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                <div class="form-group left-group">
+                    <button class="btn btn-primary">查询</button>
+                </div>
+                <div class="form-group left-group">
+                    <a href="{% url 'cms:news_lists' %}">清除查询</a>
+                </div>
+                </div>
+            </form>
+        </div>
+        <div class="box box-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>名称</td>
+                        <td>讲师</td>
+                        <td>分类</td>
+                        <td>价格</td>
+                        <td>视频链接</td>
+                        <td>图片链接</td>
+                        <td>发布时间</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for course in courses %}
+                    <tr >
+                        <td><a target="_blank" href="{% url 'course:detail' course_id=course.id %}">{{ course.title }}</a></td>
+                        <td>{{ course.teacher.username }}</td>
+                        <td>{{ course.category.name}}</td>
+                        <td>{{ course.price }}</td>
+                        <td>{{ course.video_url }}</td>
+                        <td>{{ course.cover_url }}</td>
+                        <td>{{ course.pub_time|time_format }}</td>
+                        <td>
+                            <a href="" class="btn btn-info btn-xs edit-btn">编辑</a>
+                            <button  class="btn btn-danger btn-xs del-btn">删除</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="box box-footer">
+        </div>
+    </div>
+</div>
+{% endblock %}

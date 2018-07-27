@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.news',
     'apps.cms',
+    'apps.course',
     'apps.xfzauth',
     'password_reset',# 密码重置应用
     'apps.ueditor',# 富文本编辑器
@@ -206,3 +207,7 @@ DEBUG_TOOLBAR_PANELS = [
     # 'debug_toolbar.panels.logging.LoggingPanel',
     # 'debug_toolbar.panels.redirects.RedirectsPanel',
 ]
+
+#百度云配置
+BAIDU_CLOUD_USER_ID = "7f3b33ce9d1a4e2ca9ad149908cf4e15"
+BAIDU_CLOUD_USER_KEY = "a53798e34c72478c"

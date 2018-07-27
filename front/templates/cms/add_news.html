@@ -1,16 +1,22 @@
 {% extends 'cms/base.html' %}
 {% block title %}
-
+{% if news %}
+编辑新闻
+    {% else  %}
+    添加新闻
+{% endif %}
 {% endblock %}
 {% block head %}
     <script src="https://unpkg.com/qiniu-js@2.4.0/dist/qiniu.min.js"></script>
-    <script src="{% static 'ueditor/ueditor.config.js' %}"></script>
-    <script src="{% static 'ueditor/ueditor.all.min.js' %}"></script>
     <script src="{% static 'js/add_news.min.js' %}"></script>
 
 {% endblock %}
 {% block content-header %}
-<h1>新闻发布</h1>
+{% if news %}
+编辑新闻
+    {% else  %}
+    新闻发布
+{% endif %}
 {% endblock %}
 {% block content %}
 <div class="row">
@@ -21,24 +27,40 @@
             <div class="box-body">
                 <div class="form-group">
                     <label for="title-form">标题</label>
-                    <input type="text" id="title-form" class="form-control" name="title">
+                    {% if news %}
+                        <input type="text" id="title-form" class="form-control" name="title" value="{{ news.title }}">
+                    {% else  %}
+                        <input type="text" id="title-form" class="form-control" name="title">
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     <label for="select-form">分类</label>
                     <select class="form-control" name="category" id="select-form">
                         {% for category in categories %}
-                        <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% if news and news.category_id == category.pk %}
+                                <option value="{{ category.id }}" selected>{{ category.name }}</option>
+                                {% else %}
+                                <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="desc-form">描述</label>
-                    <input type="text" id="desc-form" class="form-control" name="desc">
+                    {% if news %}
+                        <input type="text" id="desc-form" class="form-control" name="desc" value="{{ news.desc }}">
+                        {% else %}
+                        <input type="text" id="desc-form" class="form-control" name="desc">
+                    {% endif %}
                 </div>
                 <div class="form-group">
                     <label for="thumbnail-form">缩略图</label>
                     <div class="input-group">
-                        <input type="text" id="thumbnail-form" class="form-control" name="thumbnail">
+                        {% if news %}
+                            <input type="text" id="thumbnail-form" class="form-control" name="thumbnail" value="{{ news.thumbnail }}">
+                        {% else %}
+                            <input type="text" id="thumbnail-form" class="form-control" name="thumbnail">
+                        {% endif %}
                         <span class="input-group-btn">
                             <label class="btn btn-default btn-file">
                                 添加图片<input hidden id="thumbnail-btn"  type="file" style="" class="btn btn-default">
@@ -57,11 +79,13 @@
                 <div class="form-group">
                     <label for="content-form">内容</label>
 {#                    <textarea class="form-control" name="content" id="content-form" cols="30" rows="10"></textarea>#}
-                    <script id="container" type="text/plain"></script>
+                    <script id="container" type="text/plain">
+                        {{ news.content|safe }}
+                    </script>
                 </div>
             </div>
             <div class="box-footer">
-                <button id="submit-Btn" class="btn btn-primary pull-right">发布新闻</button>
+                <button id="submit-Btn" data-news-id="{{ news.pk }}" class="btn btn-primary pull-right">发布新闻</button>
             </div>
         </form>
     </div>

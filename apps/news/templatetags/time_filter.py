@@ -1,5 +1,6 @@
 from django import template
 from datetime import datetime
+from django.utils.timezone import localtime
 import pytz
 
 register = template.Library()
@@ -25,3 +26,10 @@ def time_since(value):
             return value.strftime("%Y-%m-%d %H:%M")
     else:
         return value
+
+@register.filter
+def time_format(value):
+    if not isinstance(value,datetime):
+        return value
+    else:
+        return localtime(value).strftime("%Y-%m-%d %H:%M:%S")

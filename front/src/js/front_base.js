@@ -283,7 +283,8 @@ $(function () {
 });
 $(function () {
        // art-template模板过滤器
-    template.defaults.imports.timesince = function (valueDate) {
+    if(window.template){
+        template.defaults.imports.timesince = function (valueDate) {
         var date = new Date(valueDate);
         var dates = date.getTime();
         var now = (new Date()).getTime();
@@ -313,6 +314,7 @@ $(function () {
             return year+'/'+month+'/'+day+'/'+hour+'/'+min;
         }
 
+    }
     }
 });
 // # 图形验证码刷新

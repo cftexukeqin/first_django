@@ -1,0 +1,66 @@
+{% extends 'cms/base.html' %}
+{% block title %}
+课程发布
+{% endblock %}
+{% block head %}
+    <script src="{% static 'js/add_course.min.js' %}"></script>
+{% endblock %}
+{% block content-header %}
+    <h1>课程发布</h1>
+{% endblock %}
+{% block content %}
+<div class="row">
+<div class="col-md-12">
+    <div class="box box-primary">
+{#        <div class="box-header with-border"></div>#}
+        <form role="form">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="">标题：</label>
+                    <input type="text" name="title" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">分类：</label>
+                    <select class="form-control" name="category" id="">
+                        {% for category in categories %}
+                            <option value="{{ category.pk }}">{{ category.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            <div class="form-group">
+                <label for="teacher-input">讲师：</label>
+                <select name="teacher" id="teacher-input" class="form-control">
+                    {% for teacher in teachers %}
+                        <option value="{{ teacher.pk }}">{{ teacher.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="video-input">视频地址：</label>
+                <input type="text" class="form-control" name="video_url" id="video-input" placeholder="视频地址">
+            </div>
+            <div class="form-group">
+                <label for="cover-input">封面图：</label>
+                <input type="text" class="form-control" name="cover" id="cover-input" placeholder="封面图">
+            </div>
+            <div class="form-group">
+                <label for="price-input">价格：</label>
+                <input type="text" class="form-control" name="price" id="price-input" placeholder="价格">
+            </div>
+            <div class="form-group">
+                <label for="duration-input">时长：</label>
+                <input type="text" class="form-control" name="duration" id="duration-input">
+            </div>
+            <div class="form-group">
+                <label>简介：</label>
+                <script id="editor" type="text/plain"></script>
+            </div>
+            <div class="box-footer">
+                <button id="submit-Btn"  class="btn btn-primary pull-right">发布课程</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+</div>
+{% endblock %}

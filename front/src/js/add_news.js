@@ -16,6 +16,8 @@ News.prototype.AddNewsEvent = function(){
     var categorySelect = $("select[name='category']");
     var descInput = $("input[name='desc']");
     var thumbnailInput = $("input[name='thumbnail']");
+    var pk = submitBtn.attr('data-news-id');
+    console.log(pk);
     submitBtn.click(function (event) {
         event.preventDefault();
         var title = titleInput.val();
@@ -23,22 +25,33 @@ News.prototype.AddNewsEvent = function(){
         var desc = descInput.val();
         var thumbnail = thumbnailInput.val();
         var content = ue.getContent();
+        var url = '';
+        if(pk){
+            url = '/cms/edit_news/';
+        }else {
+            url = '/cms/add_news/';
+        }
         if(!title||!category||!desc||!thumbnail||!content){
             window.messageBox.showError('请输入新闻完整信息！');
             return;
         }
         xfzajax.post({
-            'url':'/cms/add_news/',
+            'url':url,
             'data':{
                 'title':title,
                 'category':category,
                 'desc':desc,
                 'thumbnail':thumbnail,
-                'content':content
+                'content':content,
+                'pk':pk
             },
             'success':function (result) {
                 if(result['code'] === 200){
-                    xtalert.alertSuccessToast('发布成功！');
+                    if(pk){
+                        xtalert.alertSuccessToast('新闻编辑成功！');
+                    }else {
+                        xtalert.alertSuccessToast('新闻发布成功！');
+                    }
                     window.location = '/cms/news_lists/';
                 }
             },
