@@ -1,5 +1,6 @@
 from django.db import models
 from shortuuidfield import ShortUUIDField
+import datetime
 # Create your models here.
 class CourseCategory(models.Model):
     name = models.CharField(max_length=100)
@@ -27,13 +28,14 @@ class Course(models.Model):
 class CourseOrder(models.Model):
     uid = ShortUUIDField(primary_key=True)
     buyer = models.ForeignKey('xfzauth.User',on_delete=models.DO_NOTHING)
-    course = models.ForeignKey('course.Course',on_delete=models.DO_NOTHING)
+    course = models.ForeignKey('course.Course',related_name='order',on_delete=models.DO_NOTHING)
     amount = models.FloatField(default=0)
     #订单支付状态，默认1为未支付，2为已支付
     status = models.SmallIntegerField(default=1)
     #支付方式，1为支付宝，2为微信
     istype = models.SmallIntegerField(default=1)
     create_time = models.DateTimeField(auto_now_add=True)
+    expire_time = models.DateTimeField(null=True)
 
     class Meta:
         ordering = ['-create_time']

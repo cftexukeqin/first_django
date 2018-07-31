@@ -5,6 +5,7 @@ CourseDetail.prototype.initPlayVideo = function(){
     var span = $('#info-span');
     var videourl = span.attr('data-video-url');
     var cover_url = span.attr('data-cover-url');
+    var course_id = span.attr('data-course-id');
     var player = cyberplayer("playcontainer").setup({
         width: '100%',
         height: '100%',
@@ -27,14 +28,16 @@ CourseDetail.prototype.initPlayVideo = function(){
             // 获取token的url
             'url': '/course/course_token/',
             'data': {
-                'video': videourl
+                'video': videourl,
+                'course_id':course_id
             },
             'success': function (result) {
                 if (result['code'] === 200) {
                     var token = result['data']['token'];
                     player.setToken(e.file, token);
                 } else {
-                    alert('token错误！');
+                    window.messageBox.showInfo(result['message']);
+                    player.stop();
                 }
             },
             'fail': function (error) {

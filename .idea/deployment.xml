@@ -5,7 +5,7 @@
       <paths name="dx_xfz">
         <serverdata>
           <mappings>
-            <mapping deploy="/home/ubuntu/dx_xfz " local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/home/ubuntu/dx_xfz/" local="$PROJECT_DIR$" web="/" />
           </mappings>
           <excludedPaths>
             <excludedPath local="true" path="$PROJECT_DIR$/front/node_modules" />

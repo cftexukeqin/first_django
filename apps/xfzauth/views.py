@@ -5,6 +5,7 @@ from .forms import LoginForm,SignupForm,SmsCaptchaForm
 from django.views.decorators.http import require_POST
 from django.contrib.auth import authenticate,login,logout
 from utils import restful,dxcache
+from apps.course.models import CourseOrder
 # 图形验证码相关的包
 from utils.captcha.xfzcaptcha import Captcha
 from io import BytesIO
@@ -94,6 +95,12 @@ def sms_captcha(request):
     else:
         return restful.paramserror(message=form.get_error())
 
+def my_order(request):
+    orders = CourseOrder.objects.select_related('course').filter(buyer=request.user).distinct()
+    context = {
+        'orders':orders
+    }
+    return render(request,'order/order.html',context=context)
 
 def my_logout(request):
     logout(request)

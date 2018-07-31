@@ -32,14 +32,16 @@
                         <div class="share-group">
                             <p class="title">分享至：</p>
                         </div>
-                        <div class="pay-info">
-                            <span class="pay">￥{{ course.price }}</span>
-                            <a href="{% url 'course:course_order' course_id=course.id %}" class="pay-btn">立即购买</a>
-                        </div>
+                        {% if not buyed %}
+                            <div class="pay-info">
+                                <span class="pay">￥{{ course.price }}</span>
+                                <a href="{% url 'course:course_order' course_id=course.id %}" class="pay-btn">立即购买</a>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="course-video">
-                    <span id="info-span" hidden data-video-url="{{ course.video_url }}" data-cover-url="{{ course.cover_url }}"></span>
+                    <span id="info-span" hidden data-course-id="{{ course.id }}" data-video-url="{{ course.video_url }}" data-cover-url="{{ course.cover_url }}"></span>
                     <div class="video" id="playcontainer"></div>
                 </div>
             </div>

@@ -1,0 +1,74 @@
+{% extends 'base/front_base.html' %}
+{% load time_filter %}
+{% block title %}
+
+{% endblock %}
+{% block head %}
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="{% static 'css/common/header.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common/footer.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common/body.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/order/order.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sweetalert/sweetalert.css' %}">
+    <script src="{% static 'js/order_list.min.js' %}"></script>
+{% endblock %}
+{% block main %}
+<div class="main">
+<div class="wrapper">
+    {% if not orders %}
+        <div class="none-info">
+            <div class="j-empty u-emptybig" style="display: block;">
+                <div class="j-emptytxt emptytext">
+                    <p>暂时还没有订单</p>
+                    <p class="yq">去
+                        <a href="{% url 'course:index' %}" target="_blank">
+                            全部课程</a>页面学习喜欢的课程吧~</p>
+                </div>
+            </div>
+        </div>
+        {% else %}
+            <table class="table">
+        <thead>
+        <tr>
+            <th>订单信息</th>
+            <th>单价(元)</th>
+            <th>支付金额(元)</th>
+            <th>课程操作</th>
+            <th>交易状态</th>
+            <th>交易操作</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr data-order-id="{{ order.pk }}">
+                    <td>
+                        <div class="order-info">
+                            <p class="order-time">{{ order.create_time|time_format }}</p>
+                            <p class="order-uid">订单号:{{ order.pk }}</p>
+                        </div>
+                        <a class="order-info-title" href="{% url 'course:detail' course_id=order.course.pk %}">{{ order.course.title }}</a>
+                    </td>
+                    <td>{{ order.course.price }}</td>
+                    <td>{{ order.amount }}</td>
+                    <td><a href="">去评价</a></td>
+                    {% if order.status == 2 %}
+                        <td>交易成功</td>
+                    {% else %}
+                        <td>交易关闭</td>
+                    {% endif %}
+                    {% if order.status == 1 %}
+                        <td>
+                            <a class="pay-link" href="{% url 'course:course_order' course_id=order.course.pk %}">{{ order.expire_time|time_expire }}</a>
+                            <div class="del-btn">
+                                <a class="btn btn-primary del-btn" style="color: black;cursor: pointer">删除订单</a>
+                            </div>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</div>
+</div>
+{% endblock %}

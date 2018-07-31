@@ -33,3 +33,13 @@ def time_format(value):
         return value
     else:
         return localtime(value).strftime("%Y-%m-%d %H:%M:%S")
+
+@register.filter
+def time_expire(value):
+    now = datetime.now()
+    now = now.replace(tzinfo=pytz.timezone('Asia/Shanghai'))
+    timest = (now - value).total_seconds()
+    if timest < 0:
+        return '去支付'
+    else:
+        return '订单已过期'

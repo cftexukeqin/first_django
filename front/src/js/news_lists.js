@@ -26,7 +26,7 @@ CMSNewsList.prototype.listenDeleteEvent = function(){
     var tr = deleteBtn.parent().parent();
     var newsId = tr.attr('data-pk');
     deleteBtn.click(function () {
-        xtalert.alertConfirm({
+        xfzalert.alertConfirm({
         'title':'确认删除这篇新闻?',
         'confirmCallback':function () {
             xfzajax.post({

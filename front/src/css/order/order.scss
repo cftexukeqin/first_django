@@ -1,0 +1,60 @@
+
+.main{
+  height: 80%;
+  width: 80%;
+  margin: 80px auto;
+  padding-bottom: 240px;
+  font-size: 14px;
+ }
+.table {
+  width: 100%;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background: #eaeaea;
+  text-align: center;
+}
+.table {
+  border-spacing: 30px;
+}
+
+.u-emptybig{
+  padding-top: 20px;
+  margin: 0 auto;
+  height: 220px;
+  width:220px;
+  text-align: center;
+  background:url('http://nos.netease.com/edu-image/02D494A5F7FB3DD7DF34AFB817E817B0.png?imageView&thumbnail=210z232') no-repeat;
+}
+.emptytext{
+  padding-top: 250px;
+}
+.pay-link{
+  border: 1px solid #ff8000;
+  color: #fff;
+  background: #ff8000;
+  padding: 1px 8px;
+  border-radius: 3px;
+}
+.del-btn{
+  font-size: 14px;
+  margin-top: 10px;
+}
+.order-info{
+  overflow: hidden;
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 20px;
+  margin-left: 40px;
+  .order-time{
+    float: left;
+
+  }
+  .order-uid{
+    float: left;
+    margin-left: 20px;
+  }
+}
+.order-info-title{
+  color: #333333;
+  font-size: 14px;
+}

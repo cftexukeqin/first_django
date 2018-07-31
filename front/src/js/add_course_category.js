@@ -6,7 +6,7 @@ CourseCategory.prototype.ListenAddBtnEvent = function(){
     var addBtn = $('#addBtn');
     addBtn.click(function (event) {
         event.preventDefault();
-        xtalert.alertOneInput({
+        xfzalert.alertOneInput({
             'title':'请输入课程分类',
             'confirmCallback':function (inputValue) {
                 xfzajax.post({
@@ -33,11 +33,10 @@ CourseCategory.prototype.ListenEditBtnEvent = function(){
     editBtn.click(function (event) {
         var currentBtn = $(this);
         var tr = currentBtn.parent().parent();
-        console.log(tr);
         var pk = tr.attr('data-pk');
         var name = tr.attr('data-name');
         event.preventDefault();
-        xtalert.alertOneInput({
+        xfzalert.alertOneInput({
             'title':'修改分类名称',
             'placeholder':name,
             'confirmCallback':function (inputValue) {
@@ -66,7 +65,7 @@ CourseCategory.prototype.ListenDelBtnEvent = function(){
         var currentBtn = $(this);
         var tr = currentBtn.parent().parent();
         var pk = tr.attr('data-pk');
-        xtalert.alertConfirm({
+        xfzalert.alertConfirm({
             'title':'确认删除该分类？',
             'confirmCallback':function (inputValue) {
                 xfzajax.post({
