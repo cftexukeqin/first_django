@@ -1,3 +1,4 @@
+{% load time_filter %}
 <div class="sidebar-wrapper">
                 <div class="title-group">
                     <span class="title">在线课堂</span>
@@ -26,20 +27,39 @@
                         <span class="title">热门推荐</span>
                     </div>
                     <ul class="list-group">
-                        <li>
-                            <div class="left-group">
-                                <p class="title"><a href="">
-                                    比亚迪 百度Apollo 大道用车三方携手创新共享汽车新模式
-                                </a></p>
-                                <p class="more">
-                                    <span class="category">深度热点</span>
-                                    <span class="pub-date">2018-1-22</span>
-                                </p>
-                            </div>
-                            <div class="right-group">
-                                <a href=""><img src="https://static-image.xfz.cn/1528267503_674.jpg-website.news.list" alt=""></a>
-                            </div>
-                        </li>
+                            {% if most_viewed %}
+                                {% for news in most_viewed %}
+                                    <li>
+                                        <div class="left-group">
+                                            <p class="title"><a href="{% url 'news:detail' news_id=news.id %}">{{ news.title }}</a></p>
+                                            <p class="more">
+                                                <span class="category">{{ news.category.name }}</span>
+                                                <span class="pub-date">{{ news.pub_time|time_since }}</span>
+                                            </p>
+                                        </div>
+                                        <div class="right-group">
+                                            <a href="{% url 'news:detail' news_id=news.id %}"><img src="{{ news.thumbnail }}"alt=""></a>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                                {% else %}
+                                {% most_commented_news as newes %}
+                                {% for news in newses %}
+                                <li>
+                                        <div class="left-group">
+                                            <p class="title"><a href="{% url 'news:detail' news_id=news.id %}">{{ news.title }}</a></p>
+                                            <p class="more">
+                                                <span class="category">{{ news.category.name }}</span>
+                                                <span class="pub-date">{{ news.pub_time|time_since }}</span>
+                                            </p>
+                                        </div>
+                                        <div class="right-group">
+                                            <a href="{% url 'news:detail' news_id=news.id %}"><img src="{{ news.thumbnail }}"alt=""></a>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+
+                            {% endif %}
                     </ul>
                 </div>
             </div>

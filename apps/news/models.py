@@ -1,6 +1,5 @@
 from django.db import models
-from datetime import datetime
-import pytz
+
 # Create your models here.
 class NewsCategory(models.Model):
     name = models.CharField(max_length=100)

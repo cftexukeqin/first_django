@@ -40,7 +40,7 @@
         </thead>
         <tbody>
             {% for order in orders %}
-                <tr data-order-id="{{ order.pk }}">
+                <tr>
                     <td>
                         <div class="order-info">
                             <p class="order-time">{{ order.create_time|time_format }}</p>
@@ -57,10 +57,10 @@
                         <td>交易关闭</td>
                     {% endif %}
                     {% if order.status == 1 %}
-                        <td>
+                        <td >
                             <a class="pay-link" href="{% url 'course:course_order' course_id=order.course.pk %}">{{ order.expire_time|time_expire }}</a>
-                            <div class="del-btn">
-                                <a class="btn btn-primary del-btn" style="color: black;cursor: pointer">删除订单</a>
+                            <div class="del-btn-group">
+                                <a class="btn btn-primary del-btn" style="color: black;cursor: pointer" data-order-id="{{ order.pk }}" >删除订单</a>
                             </div>
                         </td>
                     {% endif %}

@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from . import course_views
-
+from . import staff_views
 app_name = 'cms'
 
 urlpatterns =[
@@ -23,7 +23,7 @@ urlpatterns =[
     path('comments/',views.comments,name='comments'),
     path('qntoken/',views.qntoken,name='qntoken'),
 ]
-
+#course路由
 urlpatterns += [
     path('add_course/',views.CourseView.as_view(),name='add_course'),
     path('course_list/',views.course_lists,name='course_list'),
@@ -32,3 +32,9 @@ urlpatterns += [
     path('edit_course_category/',course_views.edit_category,name='edit_course_category'),
 
 ]
+# staff路由
+urlpatterns += [
+    path('staff/',staff_views.staff,name='staff'),
+    path('add_staff/',staff_views.AddStaffView.as_view(),name='add_staff')
+]
+

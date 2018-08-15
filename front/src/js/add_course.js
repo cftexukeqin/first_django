@@ -19,9 +19,10 @@ CourseAdd.prototype.listenAddBtnEvent = function(){
         var price = $('#price-input').val();
         var duration = $('#duration-input').val();
         var desc = ue.getContent();
-        console.log(category_id);
-        console.log('---------------------');
-        console.log(teacher_id);
+        if(!title && !cover_url && !video_url && !price && !duration && !desc){
+            window.messageBox.showInfo('请输入完整的课程信息！');
+            return;
+        }
         xfzajax.post({
             'url':'/cms/add_course/',
             'data':{

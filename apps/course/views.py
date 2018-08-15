@@ -19,12 +19,18 @@ def course_index(request):
 
 def course_detail(request,course_id):
     course = Course.objects.select_related('teacher', 'category').get(pk=course_id)
-    buyed = CourseOrder.objects.filter(course=course,status=2,buyer=request.user).exists()
+    print(request.user)
+    buyed = None
+    if request.user:
+        buyed = CourseOrder.objects.filter(course=course,status=2,buyer=request.user).exists()
     context = {
         'course':course,
         'buyed':buyed
     }
     return render(request,'course/course_detail.html',context=context)
+
+
+@xfz_login_required
 def course_token(request):
     file = request.GET.get('video')
     course_id = request.GET.get('course_id')
@@ -44,21 +50,25 @@ def course_token(request):
     token = '{0}_{1}_{2}'.format(signature, USER_ID, expiration_time)
     return restful.result(data={'token': token})
 
-
+@xfz_login_required
 def course_order(request,course_id):
     course = Course.objects.get(pk=course_id)
     order = None
     # 判断该用户是否已经创建此订单，如果不存在则创建
     if not CourseOrder.objects.filter(course_id=course.id).exists():
-        order = CourseOrder.objects.create(course=course,buyer=request.user,status=1,amount=course.price,expire_time=datetime.datetime.now()+datetime.timedelta(hours=2))
+        order = CourseOrder.objects.create(course=course,buyer=request.user,status=1,amount=course.price,expire_time=now_func()+datetime.timedelta(hours=2))
     else:
         # 先判断是否过期
         order = CourseOrder.objects.filter(course_id=course.id,buyer=request.user).first()
         if order.expire_time < now_func():
             #如果已经存在且处于过期，重新选择后将该订单的创建时间和过期时间进行更新。
-            CourseOrder.objects.filter(course_id=course_id).update(create_time=datetime.datetime.now(),expire_time=datetime.datetime.now()+datetime.timedelta(hours=2))
+            CourseOrder.objects.filter(course_id=course_id).update(create_time=now_func(),expire_time=now_func()+datetime.timedelta(hours=2))
     context = {
-        'course':course,
+        'goods':{
+            'thumbnail':course.cover_url,
+            'price':course.price,
+            'title':course.title
+        },
         'order':order,
         'notify_url':request.build_absolute_uri(reverse('course:notify_url')),
         'return_url':request.build_absolute_uri(reverse('course:detail',kwargs={'course_id':course.id}))

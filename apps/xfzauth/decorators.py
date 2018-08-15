@@ -10,4 +10,5 @@ def xfz_login_required(func):
                 return restful.noauth(message='登陆后才能评论')
             else:
                 return redirect('/')
+            # return restful.noauth(message='请先登录！')
     return wrapper

@@ -186,7 +186,8 @@ Auth.prototype.ListensignupEvent = function(){
                 }
             },
             'fail':function (error) {
-                window.messageBox.showError(error)
+                window.messageBox.showError(error);
+                // console.log(error);
             }
         })
     })

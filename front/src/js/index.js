@@ -29,7 +29,6 @@ function Banner() {
 
 
 }
-
 // 定义箭头显示与否的函数
 Banner.prototype.toggleArrow = function(isShow){
   var self = this;
@@ -160,6 +159,8 @@ Banner.prototype.listenPageControl = function(){
         })
     })
 };
+
+
 function Index(){
     var self = this;
     self.page = 2;
@@ -244,9 +245,15 @@ Banner.prototype.run = function () {
 
 };
 
+// $(function () {
+//     $('#nav li').click(function () {
+//         $(this).siblings('li').removeClass('active');
+//         $(this).addClass('active');
+//     })
+// });
 $(function () {
-   var banner = new Banner();
-   var index = new  Index();
-   index.run();
-   banner.run();
+    var banner = new Banner();
+    var index = new Index();
+    index.run();
+    banner.run();
 });

@@ -48,15 +48,15 @@ News.prototype.AddNewsEvent = function(){
             'success':function (result) {
                 if(result['code'] === 200){
                     if(pk){
-                        xtalert.alertSuccessToast('新闻编辑成功！');
+                        xfzalert.alertSuccessToast('新闻编辑成功！');
                     }else {
-                        xtalert.alertSuccessToast('新闻发布成功！');
+                        xfzalert.alertSuccessToast('新闻发布成功！');
                     }
                     window.location = '/cms/news_lists/';
                 }
             },
             'fail':function (error) {
-                xtalert.alertInfoToast(error)
+                xfzalert.alertInfoToast(error)
             }
         })
     })
@@ -130,7 +130,7 @@ News.prototype.QiniuUploadNext = function(res){
 };
 News.prototype.QiniuUploadError = function(err){
     err='上传文件类型错误，请选择图片文件！';
-    xtalert.alertErrorToast(err);
+    xfzalert.alertErrorToast(err);
     // window.messageBox.showError(err);
 };
 News.prototype.QiniuUploadComplete = function(res){

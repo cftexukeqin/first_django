@@ -35,6 +35,9 @@
                             <span class="author">{{ news.author.username }}</span>
                             <span class="pub-date">{{ news.pub_time|time_since }}</span>
                             <span class="category">{{ news.category.name }}</span>
+                            {% if total_views %}
+                            <span class="views">{{ total_views }} views </span>
+                            {% endif %}
                         </div>
                         <div class="share-info">
                             <span>分享至：</span>
@@ -48,7 +51,11 @@
                 </div>
                 <div class="comment-wrapper">
                     <h3 class="title">评论列表</h3>
+                {% if user.is_authenticated %}
+                    <textarea  name="comment" id="" class="textarea-comment logined-textarea"></textarea>
+                    {% else %}
                     <textarea  name="comment" id="" class="textarea-comment logined-textarea" placeholder="登录账号，发表评论" ></textarea>
+                {% endif %}
                     <div class="submit-btn">
                         <button class="commit-btn" data-id="{{ news.id }}">评论</button>
                     </div>
@@ -62,10 +69,10 @@
                                 <span class="pub-date">{{ comment.pub_time|time_since }}</span>
                             </div>
                             <p class="comment-content">{{ comment.content }}</p>
-                            <div class="manage-comment">
-                                <a class="reply" href="">回复</a>
-                                <a class="cancel" href="">删除</a>
-                            </div>
+{#                            <div class="manage-comment">#}
+{#                                <a class="reply" href="">回复</a>#}
+{#                                <a class="cancel" href="">删除</a>#}
+{#                            </div>#}
                         </li>
                         {% endfor %}
 

@@ -2,6 +2,8 @@ from django import template
 from datetime import datetime
 from django.utils.timezone import localtime
 import pytz
+from ..models import NewsModel
+from django.db.models import Count
 
 register = template.Library()
 
@@ -43,3 +45,8 @@ def time_expire(value):
         return '去支付'
     else:
         return '订单已过期'
+
+#自定义标签，评论最多的新闻
+@register.simple_tag
+def most_commented_news():
+    return NewsModel.objects.annotate(total_comments=Count('comments')).order_by('-total_comments')[:4]

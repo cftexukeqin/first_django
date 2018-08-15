@@ -2,6 +2,7 @@ function CourseOrder() {
 
 }
 CourseOrder.prototype.run = function () {
+    var self = this;
     var submitBtn = $("#submit-btn");
     submitBtn.click(function (event) {
         event.preventDefault();
@@ -29,7 +30,12 @@ CourseOrder.prototype.run = function () {
                     var keyInput = $("input[name='key']");
                     keyInput.val(key);
                     $("#pay-form").submit();
+                }else {
+                    self.maskWrapper.show();
                 }
+            },
+            'fail':function (err) {
+                window.messageBox.showError(err);
             }
         });
     });

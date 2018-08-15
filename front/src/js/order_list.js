@@ -3,9 +3,9 @@ function OrderList() {
 }
 OrderList.prototype.listenDelBtnEvent = function(){
     var delBtn = $('.del-btn');
-    var tr = delBtn.parent().parent();
-    var orderId = tr.attr('data-order-id');
     delBtn.click(function () {
+        var currrentBtn = $(this);
+        var orderId = currrentBtn.attr('data-order-id');
         xfzalert.alertConfirm({
             'title':'确定删除此订单？',
             'confirmCallback':function () {
