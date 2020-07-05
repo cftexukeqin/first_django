@@ -13,19 +13,19 @@ import json
 短信业务调用接口示例，版本号：v20170525
 Created on 2017-06-12
 """
-ACCESS_KEY_ID = "LTAI5lLMYdjmxkqT"
-ACCESS_KEY_SECRET = "ay28aWThDrQAdLNVdM3QcoLHR1wcQZ"
+ACCESS_KEY_ID = ""
+ACCESS_KEY_SECRET = ""
 # 注意：不要更改
 REGION = "cn-hangzhou"
-PRODUCT_NAME = "Dysmsapi"
-DOMAIN = "dysmsapi.aliyuncs.com"
+PRODUCT_NAME = ""
+DOMAIN = ""
 acs_client = AcsClient(ACCESS_KEY_ID, ACCESS_KEY_SECRET, REGION)
 region_provider.add_endpoint(PRODUCT_NAME, REGION, DOMAIN)
 
 def send_sms(phone_numbers,code):
     business_id = uuid.uuid1()
-    sign_name = 'DxPython论坛'
-    template_code='SMS_117526294'
+    sign_name = ''
+    template_code=''
     smsRequest = SendSmsRequest.SendSmsRequest()
     # 申请的短信模板编码,必填
     smsRequest.set_TemplateCode(template_code)
