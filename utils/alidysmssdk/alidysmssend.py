@@ -13,8 +13,8 @@ import json
 短信业务调用接口示例，版本号：v20170525
 Created on 2017-06-12
 """
-ACCESS_KEY_ID = ""
-ACCESS_KEY_SECRET = ""
+ACCESS_KEY_ID = "#######################"
+ACCESS_KEY_SECRET = "#######################"
 # 注意：不要更改
 REGION = "cn-hangzhou"
 PRODUCT_NAME = ""
